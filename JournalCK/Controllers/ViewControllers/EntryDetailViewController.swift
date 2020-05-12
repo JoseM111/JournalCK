@@ -64,6 +64,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Clears the text field & body text from the viewcontroller
     @IBAction func clearTextBtnTapped(_ sender: Any) {
         titleTextField.text = ""
         bodyTextField.text = ""
@@ -76,7 +77,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         bodyTextField.text = entry.body
     }
     
-    private func txtFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
     }

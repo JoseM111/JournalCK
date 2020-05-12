@@ -9,10 +9,15 @@ class EntryModelController {
     var entryList: [Entry] = []
 
     /*-----------------------------------------------------------
-    (CKContainer):--? A container object manages all explicit and
-     implicit attempts to access the contents of the container.
-     (publicCloudDatabase):--? The database containing the data
-      shared by all users.
+    (CKContainer):--? The database in this property is available
+     only if the device has an active iCloud account. Access to
+     the database is limited to the user of that iCloud account by
+     default. The current user owns all content in the private
+     database and is allowed to read and write that content. Data
+     in the private database is not visible in the developer portal
+     or to any other users. Data stored in the private database
+     counts against the storage quota of the current user’s
+     iCloud account.
     -----------------------------------------------------------*/
     let privateDB = CKContainer.default().privateCloudDatabase
 
