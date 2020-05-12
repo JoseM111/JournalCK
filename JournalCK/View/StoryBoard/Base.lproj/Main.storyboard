@@ -40,7 +40,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Tq1-Wh-dox" kind="show" id="uuP-YN-VYU"/>
+                                    <segue destination="Tq1-Wh-dox" kind="show" identifier="toDetailVC" id="uuP-YN-VYU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -146,6 +146,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E6p-eL-7ml"/>
+        <segue reference="uuP-YN-VYU"/>
     </inferredMetricsTieBreakers>
 </document>

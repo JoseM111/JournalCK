@@ -5,7 +5,17 @@ class EntryListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        EntryModelController.shared.fetchEntriesWith { (result) in
+            switch result {
+                
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                }
+                case .failure(_):
+                printf("There was an error..")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

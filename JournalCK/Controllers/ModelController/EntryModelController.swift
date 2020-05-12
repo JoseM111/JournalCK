@@ -67,7 +67,7 @@ class EntryModelController {
             // 1] Build a predicate
             let fetchAllEntryPredicates = NSPredicate(value: true)// Fetch all types
             // 2] Build out our query:--? query all queries of type hype
-            let queryEntry = CKQuery(recordType: EntryStrs.recordEntryKey, predicate: fetchAllEntryPredicates)
+            let queryEntry = CKQuery(recordType: EntryStrs.RecordEntryKey, predicate: fetchAllEntryPredicates)
 
             // 5] Search the specified zone asynchronously for records that match the query parameters.
             privateDB.perform(queryEntry, inZoneWith: nil) { (records, error) in
