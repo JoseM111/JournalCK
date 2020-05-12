@@ -1,21 +1,13 @@
 import UIKit
 
 class EntryListTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        EntryModelController.shared.fetchEntriesWith { (result) in
-            switch result {
-                
-                case .success(_):
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                }
-                case .failure(_):
-                printf("There was an error..")
-            }
-        }
+        // Has to refresh the tableView to render the
+        // saved entries when segue back to the viewController
+        refreshEntries()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,11 +16,27 @@ class EntryListTableViewController: UITableViewController {
     }
     
     // MARK: _@Class methods
+    /**©---------------------------------------------©*/
     func updateViews() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
+           DispatchQueue.main.async {
+               self.tableView.reloadData()
+           }
+       }
+       
+       func refreshEntries() {
+              EntryModelController.shared.fetchEntriesWith { (result) in
+                  switch result {
+                      
+                      case .success(_):
+                          DispatchQueue.main.async {
+                              self.tableView.reloadData()
+                      }
+                      case .failure(_):
+                          printf("There was an error..")
+                  }
+              }
+          }
+    /**©---------------------------------------------©*/
     
     // MARK: - Table view data source
 
